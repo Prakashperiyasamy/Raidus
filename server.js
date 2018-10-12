@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const mongoose =require('mongoose');
 const bodyParser =require("body-parser")
-app.use({})
 app.get('/api/customers', (req, res) => {
   const customers = [
     {id: 1, firstName: 'John', lastName: 'Doe'},
