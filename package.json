@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client-install":"cd front-end-raidus && npm install",
+    "client-install": "cd front-end-raidus && npm install",
     "server": "nodemon server.js",
     "client": "npm start --prefix front-end-raidus",
     "dev": "concurrently \"npm run server\" \"npm run client\""
@@ -19,6 +19,7 @@
   "dependencies": {
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
+    "mongoose": "^5.3.2",
     "nodemon": "^1.18.4"
   }
 }
