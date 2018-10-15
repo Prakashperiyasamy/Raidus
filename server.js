@@ -1,7 +1,24 @@
-const express = require('express');
-const app = express();
-const mongoose =require('mongoose');
-const bodyParser =require("body-parser")
+var express = require('express');
+var app = express();
+var mongoose =require('mongoose');
+var bodyParser =require("body-parser");
+var routes=express.Router();
+var loginRoutes=require('./Routes/route')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use((req,res,next)=>{
+  res.header("Access-Control-Allow-Origin","*"),
+  res.header("Access-Control-Allow-Headers","Content-Type,Accept,Origin")
+  next()
+})
+var connection = mongoose.connect(
+  "mongodb://localhost:27017/raidd",
+  { useNewUrlParser: true }
+);
+
+app.use("/api", loginRoutes);
+
+
 app.get('/api/customers', (req, res) => {
   const customers = [
     {id: 1, firstName: 'John', lastName: 'Doe'},
